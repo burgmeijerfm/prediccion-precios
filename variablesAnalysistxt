@@ -11,7 +11,7 @@ BsmtUnfSF
 TotalBsmtSF 
 BsmtFullBath 
 BsmtHalfBath 
-Neighborhood: not applicable
+
 Heating: not applicable
 HeatingQC: not applicable 
 WoodDeckSF:
@@ -26,24 +26,24 @@ SaleCondition:
 
 Alley  
 MiscFeature
-
+PoolQC      (1453) --
 
 -- Null Handling 
 
 
 LotFrontage (259) -- mean 
-MasVnrType (872) -- Replace null with 'None'
-Electrical (1) -- replace with 'Mix'
-FireplaceQu (690) --
-GarageType  (81) --
-GarageYrBlt  (81) --
-GarageFinish  (81) --
-GarageQual    (81) --
-GarageCond  (81) --
-PoolQC      (1453) --  
+MasVnrType (872) -- mode 
+MasVnrArea: mean
+Electrical (1) -- mode
+FireplaceQu (690) -- mode
+GarageType  (81) -- mode 
+GarageYrBlt  (81) -- mean
+GarageFinish  (81) -- mean
+GarageQual    (81) -- mode
+GarageCond  (81) -- mode 
 Fence (1179) -- mean important variable for future application
 
--- Categorical one-hot encoding
+-- Categorical nominal one-hot encoding
 
 MSZoning one-hot encoding (8)
 Street: ohe (2)
@@ -69,7 +69,7 @@ PavedDrive: (3)
 
 
 
--- ordinal features (to be mapped) 
+-- Categorical ordinal features (to be mapped) 
 
 Utilities: Electricity only 0 -> All public Utilities (E,G,W,& S) 4
 ExterQual: Poor  0 -> Excellent 4 
@@ -89,6 +89,7 @@ LotFrontage:
 -- transform square ft to square meters 
 
 LotArea:
+MasVnrArea:
 1stFlrSF:
 2ndFlrSF:
 LowQualFinSF
