@@ -1,0 +1,98 @@
+-- Remove 
+Basement - not applicable (11) 
+BsmtQual 
+BsmtCond 
+BsmtExposure 
+BsmtFinType1 
+BsmtFinSF1 
+BsmtFinType2 
+BsmtFinSF2 
+BsmtUnfSF 
+TotalBsmtSF 
+BsmtFullBath 
+BsmtHalfBath 
+
+Heating: not applicable
+HeatingQC: not applicable 
+WoodDeckSF:
+OpenPorchSF:
+EnclosedPorch:
+3SsnPorch:
+ScreenPorch:
+SaleType:
+SaleCondition:
+
+-- Removing due to null values null > 70% (1022)
+
+Alley  
+MiscFeature
+PoolQC      (1453) --
+
+-- Null Handling 
+
+
+LotFrontage (259) -- mean 
+MasVnrType (872) -- mode 
+MasVnrArea: mean
+Electrical (1) -- mode
+FireplaceQu (690) -- mode
+GarageType  (81) -- mode 
+GarageYrBlt  (81) -- mean
+GarageFinish  (81) -- mean
+GarageQual    (81) -- mode
+GarageCond  (81) -- mode 
+Fence (1179) -- mean important variable for future application
+
+-- Categorical nominal one-hot encoding
+
+MSZoning one-hot encoding (8)
+Street: ohe (2)
+Alley: ohe (3)
+LotShape: ohe (4)
+LandContour: ohe (4)
+Utilities: ohe (4)
+LotConfig:ohe (5)
+LandSlope: (3)
+Condition1: (9)
+Condition2: (9)
+BldgType: (5)
+HouseStyle: (8)
+RoofStyle: (6) 
+RoofMatl: (8)
+Exterior1st: (17)
+Exterior2nd: (17) 
+MasVnrType: (5)
+Foundation: (6) 
+CentralAir: (2)
+GarageType: (7)
+PavedDrive: (3)
+
+
+
+-- Categorical ordinal features (to be mapped) 
+
+Utilities: Electricity only 0 -> All public Utilities (E,G,W,& S) 4
+ExterQual: Poor  0 -> Excellent 4 
+ExterCond: Poor  0 -> Excellent 4
+Electrical: Mixed 0 -> Standard 4
+KitchenQual: Poor 0 -> Excellent 4
+Functional: salvage only 0 -> Typical 7
+FireplaceQu: NaN - Poor 0 -> Excellent 4
+GarageFinish: NA 0 -> Finished 3
+GarageQual NA 0 -> Excellent 5
+GarageCond: NA 0 -> Excellent 5
+
+-- transform linear ft to linear meters 
+
+LotFrontage:
+
+-- transform square ft to square meters 
+
+LotArea:
+MasVnrArea:
+1stFlrSF:
+2ndFlrSF:
+LowQualFinSF
+GrLivArea:
+GarageArea:
+PoolArea:
